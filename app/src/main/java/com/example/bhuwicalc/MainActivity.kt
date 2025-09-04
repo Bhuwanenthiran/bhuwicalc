@@ -318,6 +318,8 @@ fun CalculatorButton(
     isWide: Boolean = false,
     onClick: () -> Unit
 ) {
+    val fontSize = if (text.length > 1) 24.sp else 32.sp
+
     Button(
         onClick = onClick,
         modifier = modifier
@@ -330,14 +332,16 @@ fun CalculatorButton(
         elevation = ButtonDefaults.buttonElevation(
             defaultElevation = 4.dp,
             pressedElevation = 8.dp
-        )
+        ),
+        contentPadding = PaddingValues(4.dp)
     ) {
         Text(
             text = text,
-            fontSize = 32.sp,
+            fontSize = fontSize,
             fontWeight = FontWeight.Medium,
             color = textColor,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+            maxLines = 1
         )
     }
 }
